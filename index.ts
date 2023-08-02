@@ -17,39 +17,45 @@ type Movie = {
     genre: string
 }
 
+const moviesList = [
+    {
+        title: 'The Awesome Title of a Movie',
+        image: 'https://picsum.photos/1920/1080',
+        thumbnailImage: 'https://picsum.photos/300/400',
+        genre: 'Horror'
+    },
+    {
+        title: 'Short Title',
+        image: 'https://picsum.photos/1920/1080',
+        thumbnailImage: 'https://picsum.photos/300/400',
+        genre: 'Horror'
+    },
+    {
+        title: 'Why do we do this?',
+        image: 'https://picsum.photos/1920/1080',
+        thumbnailImage: 'https://picsum.photos/300/400',
+        genre: 'Horror'
+    },
+    {
+        title: 'Deliberately worded!',
+        image: 'https://picsum.photos/1920/1080',
+        thumbnailImage: 'https://picsum.photos/300/400',
+        genre: 'Horror'
+    },
+    {
+        title: 'What?!',
+        image: 'https://picsum.photos/1920/1080',
+        thumbnailImage: 'https://picsum.photos/300/400',
+        genre: 'Horror'
+    }
+]
+
 app.use('/movies', (req: Request, res: Response): express.Response<Movie[]> => {
-    return res.send([
-        {
-            title: 'The Awesome Title of a Movie',
-            image: 'https://picsum.photos/1920/1080',
-            thumbnailImage: 'https://picsum.photos/300/400',
-            genre: 'Horror'
-        },
-        {
-            title: 'Short Title',
-            image: 'https://picsum.photos/1920/1080',
-            thumbnailImage: 'https://picsum.photos/300/400',
-            genre: 'Horror'
-        },
-        {
-            title: 'Why do we do this?',
-            image: 'https://picsum.photos/1920/1080',
-            thumbnailImage: 'https://picsum.photos/300/400',
-            genre: 'Horror'
-        },
-        {
-            title: 'Deliberately worded!',
-            image: 'https://picsum.photos/1920/1080',
-            thumbnailImage: 'https://picsum.photos/300/400',
-            genre: 'Horror'
-        },
-        {
-            title: 'What?!',
-            image: 'https://picsum.photos/1920/1080',
-            thumbnailImage: 'https://picsum.photos/300/400',
-            genre: 'Horror'
-        }
-    ])
+    return res.send(moviesList)
+})
+
+app.use('/promo', (req: Request, res: Response): express.Response<Movie> => {
+    return res.send(moviesList[0])
 })
 
 app.listen(3001, () => {
